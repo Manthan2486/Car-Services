@@ -1,0 +1,48 @@
+.userhome {
+    text-align: center;
+    padding: 23px;
+    background-color: #d5deef;
+}
+.cimg{
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 360px;
+    border-radius: 10px;
+}
+hr{
+    color: black;
+    background-color: black;
+}
+.column {
+    float: left;
+    width: 500px;
+
+}
+
+
+
+.row:after {
+    display: table;
+}
+
+
+/* Style the counter cards */
+.card {
+    border-radius: 10px;
+    height: 500px;
+    margin: 50px;
+    box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    transition: transform .2s;
+    background-color: #f0f3fa;
+}
+.card:hover{
+    -ms-transform: scale(1.5); /* IE 9 */
+  -webkit-transform: scale(1.5); /* Safari 3-8 */
+  transform: scale(1.05); 
+}
+.carddesc{
+    font-size: x-large;
+    margin-top: 10px;
+}

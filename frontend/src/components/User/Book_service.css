@@ -1,0 +1,51 @@
+
+.bookform {
+    color: #638ecb;
+    width: 600px;
+    margin-top: 50px;
+    margin-left: 480px;
+    background-color: #d5deef;
+    height: 1450px;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+.cursor{
+    cursor: pointer;
+}
+.formhead {
+    text-align: center;
+    padding: 23px;
+    color:#638ecb;
+}
+
+.formimg {
+    margin-left: 220px;
+    margin-top: 10px;
+    background-color: #d5deef;
+    color: #d5deef;
+}
+
+.forminput {
+    
+    background-color: #d5deef;
+    border: none;
+    outline: none;
+    color: #638ecb;
+    border-bottom: 1px solid #638ecb;
+}
+
+.typelabel {
+    color: #638ecb;
+}
+
+.bookbtn {
+    margin-top: 30px;
+    margin-left: 180px;
+    border: none;
+    width: 210px;
+    height: 40px;
+    background-color: #638ecb;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}

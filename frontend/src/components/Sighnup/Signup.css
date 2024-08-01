@@ -1,0 +1,112 @@
+*{
+  margin: 0%;
+}
+.mainS{
+  background-color:#638ecb;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  margin: 0%;
+}
+.card1S{
+  border-radius: 20px;
+  position: absolute;
+  background-color: #f0f3fa;
+  display: flex;
+  margin-top: 100px;
+  margin-left:  400px;
+  height: 500px;
+  width: 800px;
+}
+.card2S{
+  position: absolute;
+}
+.imgS{
+  margin-top: 50px;
+  height: 400px;
+}
+.card3S{
+  border-radius: 20px;
+  width: 400px;
+  height: 500px;
+  position:absolute;
+  margin-left:400px;
+  background-color: #b1c9ef;
+}
+.headS{
+  height: 40px;
+  width: 280px;
+  border-radius: 10px;
+  margin-left: 60px;
+  background: none;
+  margin-top: 50px;
+  background-color: #638ecb;
+}
+.btn1S{
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #638ecb;
+  height: 40px;
+  width: 140px;
+  border-radius: 10px;
+  color: white;
+}
+
+.btn2S{
+  background: none;
+  border: none;
+  cursor: pointer;
+  background-color: #638ecb;
+  height: 40px;
+  width: 140px;
+  border-radius: 10px;
+  color: white;
+}
+.btn2S{
+  background-color: #f0f3fa;
+  color:#638ecb;
+}
+
+.titleS{
+  margin-top: 30px;
+  text-align: center;
+  margin-left: 10px;
+  cursor: default;
+  color: #638ecb;
+}
+.inputS{
+  margin-left: 100px;
+  
+}
+.signupinput{
+  color: #638ecb;
+}
+.signupinput{
+  border: none;
+  background-color: #b1c9ef;
+  border-bottom: 1px solid #638ecb;
+  height: 20px;
+  width: 200px;
+}
+a{
+  margin-left: 90px;
+  text-decoration: none;
+  color: #638ecb;
+}
+a:hover{
+  color: black;
+  border-bottom: 1px solid black;
+}
+.btnS{
+  border: none;
+  width: 210px;
+  height: 40px;
+  background-color:#638ecb;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+}
+.signuplabel{
+  color: #638ecb;
+}

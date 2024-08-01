@@ -1,0 +1,44 @@
+.updatemain{
+    margin: 40px;
+    padding: 20px;
+    margin-left: 450px;
+    border-radius: 10px;
+    width: 600px;
+    background-color: #d5deef;
+}
+.uhead{
+    text-align: center;
+    padding: 23px;
+    color:#638ecb;
+    
+}
+table {
+    width: 100%;
+  }
+  th{
+    border-bottom: 1px solid black;
+    
+  }
+  tr:nth-child(even) {
+    background-color:#638ecb;
+  }
+  td,th{
+    text-align: center;
+    padding: 8px;
+  }
+  
+  .colsize1{
+    width: 50px;
+  }
+  .colsize2{
+    width: 300px;
+  }
+  .colsize3{
+    width: 200px;
+  }
+  
+  .statusimg{
+    display: flex;
+    justify-items: center;
+    height: 20px;
+  }

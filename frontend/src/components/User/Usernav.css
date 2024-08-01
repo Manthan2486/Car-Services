@@ -1,0 +1,35 @@
+
+.nav-main{
+    background-color:#638ecb;
+    display: flex;
+    height: 50px;
+    position: sticky;
+    top: 0%;
+    
+}
+img{
+    padding: 5px;
+    height: 40px;
+    display: flex;
+}
+ul{
+    display: flex;
+
+}
+ul li{
+    list-style: none;
+}
+.option{
+    margin-top: 18px;
+    margin-left: 500px;
+}
+a{
+    color: aliceblue;
+    
+}
+a:hover{
+    text-decoration: none;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+}

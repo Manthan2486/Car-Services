@@ -1,0 +1,36 @@
+.heading{
+    text-align: center;
+    padding: 23px;
+    color:#638ecb;
+}
+.contactform{
+    color: #638ecb;
+    width: 600px;
+    height: 350px;
+    margin-top: 50px;
+    margin-left: 480px;
+    background-color: #d5deef;
+    margin-bottom: 50px;
+    border-radius: 10px;
+}
+.contactinputs{
+    background-color: #d5deef;
+    border: none;
+    outline: none;
+    color: #638ecb;
+    border-bottom: 1px solid #638ecb;
+}
+.contactlabel{
+    margin-left: 120px;
+}
+.sendbtn{
+    margin-top: 30px;
+    margin-left: 230px;
+    border: none;
+    width: 150px;
+    height: 40px;
+    background-color: #638ecb;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
