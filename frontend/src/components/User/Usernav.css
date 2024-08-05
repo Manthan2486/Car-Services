@@ -12,11 +12,11 @@ img{
     height: 40px;
     display: flex;
 }
-ul{
+.ul{
     display: flex;
 
 }
-ul li{
+.li{
     list-style: none;
 }
 .option{

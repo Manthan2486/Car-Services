@@ -9,13 +9,15 @@ import Userhome from "./components//User/Userhome.jsx";
 import Book_service from "./components/User/Book_service.jsx";
 import Update from "./components/User/Update.jsx";
 import Contactus from "./components/User/Contactus.jsx";
+import Aboutus from "./components/User/Aboutus.jsx";
 const routes = createBrowserRouter([
   { path: "/", element: <Login></Login> },
   { path: "/signin", element: <Sighup></Sighup> },
   { path: "/userhome" , element:<Userhome></Userhome>},
   { path: "/book_service" , element:<Book_service></Book_service>},
   { path: "/update", element:<Update></Update>},
-  { path: "/contactus", element:  <Contactus></Contactus>},
+  { path: "/contactus", element:<Contactus></Contactus>},
+  { path: "/aboutus" , element:<Aboutus></Aboutus>}
 ]);
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
