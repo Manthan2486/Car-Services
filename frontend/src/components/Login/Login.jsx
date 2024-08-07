@@ -1,17 +1,31 @@
-import "./Login.css";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 export default function Login() {
   let email = useRef("");
   let password = useRef("");
-
-  const handlesubmit = (e) => {
+  let str=''
+  const nav = useNavigate();
+  const handlesubmit = async (e) => {
     e.preventDefault();
     console.log(email.current.value);
     console.log(password.current.value);
+    try {
+      const response = await axios.post("http://localhost:3000/login",{
+        email:email.current.value,
+        password:password.current.value 
+      })
+      if(response.data.status){
+        nav("/userhome")
+      }else{
+        str=response.data.msg;
+        console.log(response.data)
+      }
+    } catch (err) {
+      str=err;
+    }
   };
-
-  const nav = useNavigate();
   return (
     <>
       <form onSubmit={handlesubmit}>
@@ -32,6 +46,7 @@ export default function Login() {
               <div className="title">
                 <h1>Welcome back</h1>
                 <p>Login to your account </p>
+                <h4>{str}</h4>
               </div>
               <br />
               <br />
@@ -48,7 +63,7 @@ export default function Login() {
                 <a href="" className="forgot">Forgot password?</a>
                 <br />
                 <br />
-                <button type="submit" className="subbtn " onClick={() => nav("/userhome")}>
+                <button type="submit" className="subbtn">
                   LOGIN
                 </button>
               </div>

@@ -1,12 +1,12 @@
-import "./Signup.css";
-import { useNavigate } from "react-router-dom";
-import { useRef } from "react";
 import axios from 'axios';
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Signup.css";
 export default function Sighup() {
   let name = useRef("");
   let email = useRef("");
   let password = useRef("");
-
+  const nav = useNavigate();
   const handlesubmit = async(e) => {
     e.preventDefault();
     console.log(name.current.value);
@@ -17,9 +17,13 @@ export default function Sighup() {
       email:email.current.value,
       password:password.current.value
     });
+    if(response.data.status){
+      nav("/")
+    }else{
+      console.log(response.data.msg)
+    }
   };
 
-  const nav = useNavigate();
   return (
     <>
       <form onSubmit={handlesubmit}>
