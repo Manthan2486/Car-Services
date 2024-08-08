@@ -73,6 +73,11 @@ app.post("/login",async (req,res) => {
     }
     console.log({email,password});
 });
+//new booking
+app.post("/bookservice",async(req,res)=>{
+    const {appointment_date,car_type,registration_number,car_model, types_of_services, name,phone_number,email,address,city,state,zip_code}=req.body;
+    console.log({appointment_date,car_type,registration_number,car_model, types_of_services, name,phone_number,email,address,city,state,zip_code});
+})
 app.listen(3000,() => {
     console.log('Server is listining at port 3000');
 })
