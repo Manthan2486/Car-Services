@@ -16,7 +16,7 @@ export default function Usernav() {
                         <li className="li"><Link to='/book_service'>Book Service</Link></li>
                         <li className="li"><Link to='/update'>Veiw updates</Link></li>
                         <li className="li"><Link to='/contactus'>Contact us</Link></li>
-                        <li className="li"><Link to='/aboutus'>About us</Link></li>
+                        <li className="li"><Link to='/aboutus'>About</Link></li>
                     </ul>
                 </div>
 

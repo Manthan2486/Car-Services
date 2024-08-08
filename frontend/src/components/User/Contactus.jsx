@@ -24,6 +24,20 @@ const Contactus = () => {
                     </button>
                 </div>
             </div>
+            <div className="info">
+                <div className="info1">
+                    <img src="location.png" className='location' alt="location" />
+                    <p className='locationtxt'>Mithakhali Circle, CG Road, <br />Ahmedabad-320008, <br />Gujrat, India.</p>
+                </div>
+                <div className="info2">
+                    <img src="call.png" className='call' alt="call" />
+                    <p className="calltxt">+91 8980824806</p>
+                </div>
+                <div className="info3">
+                    <img src="mail.png" alt="email" className="email" />
+                    <p className="emailtxt">m.manthan006@gmail.com</p>
+                </div>
+            </div>
         </>
     )
 }

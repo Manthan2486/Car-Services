@@ -1,5 +1,23 @@
+.abouthead{
+    text-align: center;
+    margin-top: 50px;
+    color: #638ecb;
+}
 .about1{
-    background-color: #b1c9ef;
-    padding: 23px;
-    
+    background-color: #d5deef;
+    height: 460px;
+    width: 560px;
+    padding: 30px;
+    text-align: center;
+    margin-left: 440px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-size: large;
+    border-radius: 10px;
+}
+.about2{
+    height: 400px;
+    width: 500px;
+    padding: 30px;
+    background-color: #f0f3fa;
 }
