@@ -18,11 +18,12 @@ export default function Sighup() {
       password:password.current.value
     });
     if(response.data.status){
-      nav("/")
+      console.log("user inserted");
+      //nav("/")
     }else{
       console.log(response.data.msg)
     }
-  };
+  };  
 
   return (
     <>

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useRef } from "react";
+import { useRef ,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 export default function Login() {
@@ -19,8 +19,8 @@ export default function Login() {
       if(response.data.status){
         nav("/userhome")
       }else{
-        str=response.data.msg;
-        console.log(response.data)
+        console.log("incorrect pass");
+        
       }
     } catch (err) {
       str=err;
