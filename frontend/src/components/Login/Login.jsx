@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useRef ,useEffect } from "react";
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 export default function Login() {
@@ -17,6 +17,7 @@ export default function Login() {
         password:password.current.value 
       })
       if(response.data.status){
+        localStorage.setItem("email",response.data.data.email);
         nav("/userhome")
       }else{
         console.log("incorrect pass");

@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import Usernav from "./Usernav";
 import "./Book_service.css";
+import Usernav from "./Usernav";
 
 export default function Book_service() {
     const [appointment_date, setAppointmentDate] = useState("");
@@ -26,6 +26,8 @@ export default function Book_service() {
 
     const handlesubmit = async(e) => {
         e.preventDefault();
+        const em=localStorage.getItem("email");
+        console.log(em)
         const response = await axios.post("http://localhost:3000/bookservice", {
             appointment_date,
             car_type,
@@ -34,7 +36,7 @@ export default function Book_service() {
             types_of_services,
             name,
             phone_number,
-            email,
+            em,
             address,
             city,
             state,

@@ -75,8 +75,37 @@ app.post("/login",async (req,res) => {
 });
 //new booking
 app.post("/bookservice",async(req,res)=>{
-    const {appointment_date,car_type,registration_number,car_model, types_of_services, name,phone_number,email,address,city,state,zip_code}=req.body;
-    console.log({appointment_date,car_type,registration_number,car_model, types_of_services, name,phone_number,email,address,city,state,zip_code});
+    const {appointment_date,car_type,registration_number,car_model, types_of_services, name,phone_number,em,address,city,state,zip_code}=req.body;
+    let tos=JSON.stringify(types_of_services);
+    const sql = "INSERT INTO appointments (appointment_date,car_type,registration_number,car_model,types_of_services,name,phone_number,email,address,city,state,zip_code,status) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+    const values=[appointment_date,car_type,registration_number,car_model,tos,name,phone_number,em,address,city,state,zip_code,"Pending"];
+    db.query(sql,values,(err,result)=>{
+        if(err){
+            console.log(err);
+            res.json({status:false,msg:"something want wrong please try again later"})
+        }else{
+            console.log("inserted")
+            res.json({status:true,msg:"booking successfully"})
+        }
+    })
+    console.log({appointment_date,car_type,registration_number,car_model, tos, name,phone_number,em,address,city,state,zip_code});
+})
+app.get("/getbookingsbyuser",(req,res)=>{
+    const email=req.query.email;
+    db.query("select * from appointments where email='"+email+"'",(err,result)=>{
+        if(err){
+            console.log(err)
+            res.json({status:false,msg:"something went wrong...!"})
+        }else if(result.length === 0){
+            res.json({status:true,msg:"no bookings have done"})
+        }else{
+            result.forEach(element => {
+                element.types_of_services=JSON.parse(element.types_of_services);
+            });
+            console.log(result)
+            res.json({status:true,data:result})
+        }   
+    })
 })
 app.listen(3000,() => {
     console.log('Server is listining at port 3000');
