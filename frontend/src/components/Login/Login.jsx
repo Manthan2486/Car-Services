@@ -18,7 +18,12 @@ export default function Login() {
       })
       if(response.data.status){
         localStorage.setItem("email",response.data.data.email);
-        nav("/userhome")
+        if(response.data.data.usertype==='admin'){
+          nav("/adminmain")
+          alert("hello")
+        }else{
+          nav("/userhome")
+        }
       }else{
         console.log("incorrect pass");
         

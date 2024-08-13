@@ -1,80 +1,72 @@
-import React, { useState, useEffect } from "react";
-import Adminnav from './Adminnav';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import "./Adminmain.css";
-
+import Adminnav from './Adminnav';
 const Adminmain = () => {
-  const initialCars = [
-    {
-      regNumber: "ABC123",
-      carName: "Toyota Camry",
-      customerName: "John Doe",
-      services: [
-        { type: "Oil Change", status: "Completed" },
-        { type: "Tire Rotation", status: "Pending" },
-        { type: "Brake Inspection", status: "In Progress" }
-      ]
-    },
-    {
-      regNumber: "DEF456",
-      carName: "Honda Accord",
-      customerName: "Jane Smith",
-      services: [
-        { type: "Battery Check", status: "Completed" },
-        { type: "Engine Tune-up", status: "In Progress" },
-      ]
-    },
-    {
-      regNumber: "GHI789",
-      carName: "Tesla Model S",
-      customerName: "Alice Johnson",
-      services: [
-        { type: "Software Update", status: "Completed" },
-        { type: "Tire Replacement", status: "Pending" },
-      ]
-    }
-  ];
-
-  const [cars, setCars] = useState(initialCars);
-
+  const [cars, setCars] = useState([]);
   useEffect(() => {
-    const acc = document.getElementsByClassName("accordion");
-    for (let i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        const panel = this.nextElementSibling;
-        if (panel.style.maxHeight) {
-          panel.style.maxHeight = null;
+      const fetchAppointments = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/getallappointments");
+        const data = response.data;
+        if (data.status) {
+          setCars(data.data);
         } else {
-          panel.style.maxHeight = panel.scrollHeight + "px";
+          console.log("Error fetching data:", data.msg);
         }
-      });
-    }
-
-    return () => {
-      for (let i = 0; i < acc.length; i++) {
-        acc[i].removeEventListener("click", function () {
-          // Cleanup function
-        });
+      } catch (error) {
+        console.error("Error fetching appointments:", error);
       }
     };
+    fetchAppointments();
   }, []);
-
-  const handleStatusChange = (carIndex, serviceIndex, event) => {
-    const newCars = [...cars];
-    newCars[carIndex].services[serviceIndex].status = event.target.value;
-    setCars(newCars);
+  const handleStatusChange = async (carIndex, serviceIndex, event) => {
+    const newStatus = event.target.value;
+    const updatedCars = [...cars];
+    const appointmentId = updatedCars[carIndex].appointment_id;
+    const serviceName = updatedCars[carIndex].services[serviceIndex].service_name;
+    updatedCars[carIndex].services[serviceIndex].status = newStatus;
+    setCars(updatedCars);
+    try {
+      const response = await axios.post("http://localhost:3000/updateservicestatus", {
+        appointment_id: appointmentId,
+        service_name: serviceName,
+        new_status: newStatus
+      });
+      const data = response.data;
+      if (!data.status) {
+        console.error("Error updating status:", data.msg);
+        updatedCars[carIndex].services[serviceIndex].status = event.target.defaultValue;
+        setCars(updatedCars);
+      } else {
+        console.log("Status updated successfully:", data.msg);
+      }
+    } catch (error) {
+      console.error("Error updating service status:", error);
+      updatedCars[carIndex].services[serviceIndex].status = event.target.defaultValue;
+      setCars(updatedCars);
+    }
   };
-
+  const toggleAccordion = (index) => {
+    const acc = document.getElementsByClassName("accordion");
+    acc[index].classList.toggle("active");
+    const panel = acc[index].nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  };
   return (
     <>
       <Adminnav />
       <div>
         {cars.map((car, carIndex) => (
           <div key={carIndex}>
-            <button className="accordion">
-              <p>Car Registration Number:{car.regNumber}</p> <br />
-              <p>Car Name:{car.carName}</p> <br />
-              <p>Customer Name{car.customerName}</p>
+            <button className="accordion" onClick={() => toggleAccordion(carIndex)}>
+              <p>Car Registration Number: {car.registration_number}</p> <br />
+              <p>Car Name: {car.car_model}</p> <br />
+              <p>Customer Name: {car.name}</p>
             </button>
             <div className="panel">
               <table>
@@ -87,7 +79,7 @@ const Adminmain = () => {
                 <tbody>
                   {car.services.map((service, serviceIndex) => (
                     <tr key={serviceIndex}>
-                      <td>{service.type}</td>
+                      <td>{service.service_name}</td>
                       <td>
                         <select
                           value={service.status}
@@ -109,6 +101,5 @@ const Adminmain = () => {
       </div>
     </>
   );
-}
-
+};
 export default Adminmain;

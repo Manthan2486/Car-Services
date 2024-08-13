@@ -1,16 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Sighup from "./components/Sighnup/Signup.jsx";
-import Login from "./components/Login/Login.jsx";
 import Userhome from "./components//User/Userhome.jsx";
-import Book_service from "./components/User/Book_service.jsx";
-import Update from "./components/User/Update.jsx";
-import Contactus from "./components/User/Contactus.jsx";
+import Adminmain from "./components/Admin/Adminmain.jsx";
+import Login from "./components/Login/Login.jsx";
+import Sighup from "./components/Sighnup/Signup.jsx";
 import Aboutus from "./components/User/Aboutus.jsx";
-import Adminmain from "./components/Admin/Adminmain.jsx"
+import Book_service from "./components/User/Book_service.jsx";
+import Contactus from "./components/User/Contactus.jsx";
+import Update from "./components/User/Update.jsx";
+import "./index.css";
 const routes = createBrowserRouter([
   { path: "/", element: <Login></Login> },
   { path: "/signin", element: <Sighup></Sighup> },
